@@ -1,0 +1,30 @@
+# Disk Size
+du -h /|grep '^\s*[0-9\.]\+G'
+
+# Linux OS Detect
+
+#!/bin/bash
+# Detects which Linux Distribution.
+
+OS=`cat /etc/*release | head -n1 | sed 's/PRETTY\_NAME\=//'`
+echo $OS
+
+if [[ $OS == *"Debian"*  ]]
+   then
+    echo "OS: Debian";
+
+   elif [[ $OS == *"CentOS"* ]]
+     then
+
+      echo "OS: CentOS";
+
+   elif [[ $OS == *"Ubuntu"* ]]
+     then
+      echo "OS: Ubuntu";
+
+   elif [[ $OS == *"Red"* ]]
+     then
+      echo "OS: Red Hat";
+fi
+
+echo Kernel: `uname -r`
