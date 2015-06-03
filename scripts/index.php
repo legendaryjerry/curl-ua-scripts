@@ -5,9 +5,9 @@ Files
 * ca		Basic apache2 maths
 * ch		Basic HTTP Maths
 * dk		Shows large files
-* du    Disk usage
+* du      Disk usage
 * ip.php	Shows your public IP address
-* ld    Linux distribution detection
+* ld      Linux distribution detection
 * rk		Installs and runs rootkit hunter
 * si		Basic system 
 * tr		List directory tree with nice formatting	
