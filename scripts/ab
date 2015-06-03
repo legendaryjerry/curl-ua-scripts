@@ -1,0 +1,1 @@
+echo "cd to log file directory";cat access_log|awk '{print $1}' | sort | uniq | wc -l
