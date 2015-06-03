@@ -1,12 +1,13 @@
 Files
------
-* aa           Memory Usage Details
-* ab           Counts unique visitors from Apache access_log
-* dk           Shows large files
-* sysinfo      Link to bashfu.html, shows basic system information
-* tree         List directory tree with nice formatting
-* verify       Lists CPUs, Memory
-* rkhunt       Installs and runs rootkit hunter
-* ckhttp       Basic HTTP Maths
-* ckapache2    
-* ip.php       Shows your public IP address
+* aa		Memory usage details
+* ab		Counts unique visitors from Apache access_log
+* ac		Lists CPUs, Memory
+* ca		Basic apache2 maths
+* ch		Basic HTTP Maths
+* dk		Shows large files
+* du    Disk usage
+* ip.php	Shows your public IP address
+* ld    Linux distribution detection
+* rk		Installs and runs rootkit hunter
+* si		Basic system 
+* tr		List directory tree with nice formatting	
