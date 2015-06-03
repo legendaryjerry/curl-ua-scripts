@@ -1,0 +1,21 @@
+{
+cd /usr/local/
+if [ -e firehost ]; then
+rm -rf firehost
+fi
+mkdir /usr/local/firehost
+cd /usr/local/firehost
+wget http://sourceforge.net/projects/rkhunter/files/rkhunter/1.4.0/rkhunter-1.4.0.tar.gz
+tar xvzf rkhunter-1.4.0.tar.gz
+wget http://www.reznor.com/tools/chkrootkit.tar.gz
+tar xvzf chkrootkit.tar.gz
+cd chkrootkit-0.49
+make sense
+./chkrootkit
+cd ..
+cd rkhunter-1.4.0
+./installer.sh --install
+/usr/local/bin/rkhunter --update
+/usr/local/bin/rkhunter -c --propupd -sk --createlogfile rk.log
+updatedb
+}
