@@ -1,0 +1,1 @@
+echo "System Information:";lscpu|grep "CPU(s)";echo "";grep "MemTotal:" /proc/meminfo;echo "";echo "Storage:";df -h; echo ""; echo "SAV Installed?"; ls /etc/init.d/sav-*;echo"";echo "";echo "Release";cat /proc/version
