@@ -11,3 +11,7 @@ $ curl -s example.com/sysinfo|/bin/bash
 
 Disclaimer
 Review commands before you run them by running curl -s example.com/[***FILENAME***]
+
+Cron Job (optional)
+This is used to sync the curl-ua-scripts git project to local a repository that is linked or periodically synced to the public web directory. 
+15 * * * * /root/scripts/gitsync > /root/logs/gitsync.log 2>&1
