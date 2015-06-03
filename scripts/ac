@@ -1,0 +1,1 @@
+grep "MemTotal:" /proc/meminfo;echo "CPUs:";grep "processor" /proc/cpuinfo|wc -l
