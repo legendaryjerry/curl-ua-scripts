@@ -2,6 +2,7 @@ Files
 * aa		Memory usage details
 * ab		Counts unique visitors from Apache access_log
 * ac		Lists CPUs, Memory
+* ad    DNS Information
 * ca		Basic apache2 maths
 * ch		Basic HTTP Maths
 * dk		Shows large files
