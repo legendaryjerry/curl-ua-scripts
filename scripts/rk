@@ -1,10 +1,10 @@
 {
 cd /usr/local/
-if [ -e firehost ]; then
-rm -rf firehost
+if [ -e rkh ]; then
+rm -rf rkh
 fi
-mkdir /usr/local/firehost
-cd /usr/local/firehost
+mkdir /usr/local/rkh
+cd /usr/local/rkh
 wget http://sourceforge.net/projects/rkhunter/files/rkhunter/1.4.0/rkhunter-1.4.0.tar.gz
 tar xvzf rkhunter-1.4.0.tar.gz
 wget http://www.reznor.com/tools/chkrootkit.tar.gz
