@@ -1,0 +1,33 @@
+#!/bin/bash
+#Usage: ./dnsi example.com
+
+#Require input
+if (( "$#" != 1 )) 
+then
+    echo "Usage: ./dnsi example.com"
+exit 1
+fi
+
+clear
+
+#Header
+echo -e "DNS Information"
+echo "---"
+
+#IP Lookup
+host $1
+echo 
+
+#Host Lookup
+lookup=$(dig A +short $1)
+echo "This domain is hosted at:"
+whois $lookup|grep "OrgName:"|tr -s [:space:]|cut -c 7-
+echo
+
+#Nameserver Lookup
+echo "Nameservers:"
+dig NS +short $1
+
+#Registrar Lookup
+echo
+whois $1|grep -e "Registrar:"|tr -s [:space:] 
