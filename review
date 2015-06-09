@@ -1,0 +1,53 @@
+* Search for words/string using grep the right way to avoid search file indefinitely (such as pipes, symlinks and more) using grep -R syntax:
+find /path -type f | xargs grep -H "Search-Term-Here"
+find /path -type f -print0 | xargs -0 -I {} grep -H --color -i "Search-Term-Here" {}
+
+* Grep text from locate command - http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/
+locate filename|xargs grep -E "Search-Term"
+
+* To read or dump bios:
+dd if=/dev/mem bs=1k skip=768 count=256 2>/dev/null | strings -n 8
+dd if=/dev/mem bs=1k skip=768 count=256 2>/dev/null | strings -n 8 | grep something
+or dmidecode
+
+* Display both a package description and a list of files within the package under Ubuntu/Debian Linux and friends ('rpm -qil PKG' like command):
+(dpkg -p PKG ; dpkg -L PKG ) | less
+
+* Date wise display error count in Nginx/Lighttpd/Apache log file:
+for d in {11..23}; do echo -n "2013/03/$d :"; grep "2013/03/$d" error.log | wc -l; done
+## optimized version ##
+for d in {11..22}; do echo -n "2013/03/$d :"; grep -c "2013/03/$d" error.log ; done
+
+Finally, use GNU sort for human-readable sort by size:
+du -h | sort -h
+
+Linux Disk Usage
+find / -type f -size +500M -exec ls -l --block-size=1M {} \; | awk '{ print $5 "M: " $8 }' | sort -nr
+du / | sort -nr | awk '{print $1/1024/1024G,$2}' | less
+
+* See all IPv4 IPs on Linux:
+ip -f inet addr show | awk '{ print $2}'
+
+* Find out if you are root or not for admin tasks:
+(( EUID )) && { echo 'Run with root priviliges.'; exit 1; } || echo 'Running as root..'
+
+* Find files with no user and groups. Good for locating unwanted risky files:
+find / \( -nouser -o -nogroup \) -print
+
+* Determine the package file belongs to, use "aptitude show packageName" to read about it.
+dpkg -S /path/to/file_or_script
+
+* Grep Out Comments and Blank Lines- This is handy for seeing just what is in effect in a config file.
+# egrep -v "^#|^$" rcfile.conf | less
+
+* Diff in column view
+# diff -W200 -y sshd_config sshd_config.backup021213 |less 
+&!^# ( Exclude commented out lines ) 
+&^# ( Show only commented out lines ) 
+
+# prints all 500 errors or 301 or 200 or whatever status code you define
+# cat tavaana.org |awk -F\" '{ split($3, d, " "); if ( d[1] == 500 ) { print $0; } }'|less
+
+# all server 500 errors per hour
+grep CustomLog.*combined /etc/httpd/conf/httpd.conf|awk '{ print $2 }'|while read -r log; do cat $log; done |awk -F\" '{ split($3, d, " "); if ( d[1] == 500 ) { print $0; } }' |  cut -d] -f1 | awk -F: '{ print $2":00"}'|sort -n|uniq -c
+
