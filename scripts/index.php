@@ -7,7 +7,7 @@ Files
 * ch		Basic HTTP Maths
 * dk		Shows large files
 * du      	Disk usage
-* ip.php	Shows your public IP address
+* ip.php	Shows your public IP address (php must be installed on server)
 * ld      	Linux distribution detection
 * rk		Installs and runs rootkit hunter
 * si		Basic system 
