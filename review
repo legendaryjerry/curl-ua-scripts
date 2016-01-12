@@ -51,3 +51,5 @@ dpkg -S /path/to/file_or_script
 # all server 500 errors per hour
 grep CustomLog.*combined /etc/httpd/conf/httpd.conf|awk '{ print $2 }'|while read -r log; do cat $log; done |awk -F\" '{ split($3, d, " "); if ( d[1] == 500 ) { print $0; } }' |  cut -d] -f1 | awk -F: '{ print $2":00"}'|sort -n|uniq -c
 
+udevadm trigger
+udevadm trigger --action=add #(rereads /etc/udev/rules.d/70-persistent-net.rules )
